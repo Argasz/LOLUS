@@ -24,6 +24,21 @@
 		<java.version>1.8</java.version>
 	</properties>
 
+	<pluginRepositories>
+		<pluginRepository>
+			<id>synergian-repo</id>
+			<url>https://raw.github.com/synergian/wagon-git/releases</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<distributionManagement>
+		<repository>
+			<id>LOLUS.repo</id>
+			<name>LOLUS repo</name>
+			<url>git://arga1535@git.dsv.su.se/git/LOLUS.git</url>
+		</repository>
+	</distributionManagement>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -47,6 +62,13 @@
 	</dependencies>
 
 	<build>
+		<extensions>
+			<extension>
+				<groupId>ar.com.synergian</groupId>
+				<artifactId>wagon-git</artifactId>
+				<version>0.2.5</version>
+			</extension>
+		</extensions>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
