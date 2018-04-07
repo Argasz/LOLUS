@@ -3,40 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c8a5a638-7406-4152-b7e3-6c6e65fb17f6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/.idea/artifacts/LOLUSApp_war_exploded.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/.idea/libraries/Spring_4_3_15_RELEASE.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/.idea/libraries/Spring_MVC_4_3_15_RELEASE.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/.idea/misc.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/.idea/modules.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/.idea/workspace.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/LOLUSApp.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/lib/aopalliance-1.0.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/lib/commons-logging-1.2.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/lib/spring-aop-4.3.15.RELEASE.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/lib/spring-aspects-4.3.15.RELEASE.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/lib/spring-beans-4.3.15.RELEASE.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/lib/spring-context-4.3.15.RELEASE.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/lib/spring-context-support-4.3.15.RELEASE.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/lib/spring-core-4.3.15.RELEASE.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/lib/spring-expression-4.3.15.RELEASE.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/lib/spring-instrument-4.3.15.RELEASE.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/lib/spring-instrument-tomcat-4.3.15.RELEASE.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/lib/spring-jdbc-4.3.15.RELEASE.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/lib/spring-jms-4.3.15.RELEASE.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/lib/spring-messaging-4.3.15.RELEASE.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/lib/spring-orm-4.3.15.RELEASE.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/lib/spring-oxm-4.3.15.RELEASE.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/lib/spring-test-4.3.15.RELEASE.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/lib/spring-tx-4.3.15.RELEASE.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/lib/spring-web-4.3.15.RELEASE.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/lib/spring-webmvc-4.3.15.RELEASE.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/lib/spring-webmvc-portlet-4.3.15.RELEASE.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/lib/spring-websocket-4.3.15.RELEASE.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/src/Spring" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/web/WEB-INF/applicationContext.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/web/WEB-INF/dispatcher-servlet.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/web/WEB-INF/web.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/LOLUSApp/web/index.jsp" afterPath="" />
       <change beforePath="$PROJECT_DIR$/SpringBootLolus.iml" afterPath="$PROJECT_DIR$/SpringBootLolus.iml" />
       <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
     </list>
@@ -54,8 +20,8 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="54" column="39" lean-forward="false" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
+            <state relative-caret-position="539">
+              <caret line="67" column="68" lean-forward="true" selection-start-line="67" selection-start-column="68" selection-end-line="67" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -241,12 +207,12 @@
       <option name="presentableId" value="Default" />
       <updated>1523127848343</updated>
       <workItem from="1523127860743" duration="3450000" />
-      <workItem from="1523132930481" duration="752000" />
+      <workItem from="1523132930481" duration="1427000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4202000" />
+    <option name="totallyTimeSpent" value="4877000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -307,8 +273,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="54" column="39" lean-forward="false" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
+        <state relative-caret-position="539">
+          <caret line="67" column="68" lean-forward="true" selection-start-line="67" selection-start-column="68" selection-end-line="67" selection-end-column="68" />
           <folding />
         </state>
       </provider>
