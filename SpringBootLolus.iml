@@ -20,6 +20,8 @@
     </content>
     <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="org.thymeleaf:thymeleaf:Release" level="project" />
+    <orderEntry type="library" name="org.thymeleaf:thymeleaf-spring4:Release" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.5" level="project" />
   </component>
 </module>
