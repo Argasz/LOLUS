@@ -52,6 +52,14 @@
 		</dependency>
 	</dependencies>
 
+	<distributionManagement>
+		<repository>
+			<id>LOLUS.repo</id>
+			<name>LOLUS repo</name>
+			<url>git://arga1535@git.dsv.su.se/git/LOLUS.git</url>
+		</repository>
+	</distributionManagement>
+
 	<build>
 		<plugins>
 			<plugin>
