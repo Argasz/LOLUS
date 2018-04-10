@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="lolus:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="lolus-0.0.1-SNAPSHOT.war">
-      <element id="artifact" artifact-name="lolus:war exploded" />
-    </root>
-  </artifact>
-</component>
