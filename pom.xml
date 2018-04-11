@@ -70,8 +70,8 @@
 
 	<distributionManagement>
 		<repository>
-			<id>LOLUS.repo</id>
-			<name>LOLUS repo</name>
+			<id>LOLUS</id>
+			<name>LOLUS</name>
 			<url>https://github.com/Argasz/LOLUS.git</url>
 		</repository>
 	</distributionManagement>
