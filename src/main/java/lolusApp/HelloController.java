@@ -15,4 +15,6 @@ public class HelloController {
     String jens() {
         return "Jens är bäst - ingen protest.";
     }
-}
+
+    @RequestMapping("/erik")
+    String erik() {return "Erik är bättre";}
