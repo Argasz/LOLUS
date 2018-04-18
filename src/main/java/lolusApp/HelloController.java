@@ -8,7 +8,7 @@ public class HelloController {
 
     @RequestMapping("/hello")
     String hello() {
-        return  "Hello";
+        return "Hello";
     }
 
     @RequestMapping("/jens")
@@ -17,4 +17,7 @@ public class HelloController {
     }
 
     @RequestMapping("/erik")
-    String erik() {return "Erik är bättre";}
+    String erik() {
+        return "Erik är bättre";
+    }
+}
