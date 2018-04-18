@@ -11,7 +11,7 @@ public class HelloController {
 
     @RequestMapping(value="/hello", method=RequestMethod.GET)
     String hello(HttpServletResponse response) {
-        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Origin:", "*");
         return  "Hello";
     }
 
