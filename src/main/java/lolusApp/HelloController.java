@@ -2,12 +2,12 @@ package lolusApp;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.io.StringWriter;
 
+@CrossOrigin
 @RestController
 public class HelloController {
 
@@ -16,18 +16,21 @@ public class HelloController {
         return "Hello";
     }
 
-    @RequestMapping("/jens")
+    @GetMapping("/jens")
     String jens() throws IOException {
-        //return "Jens är bäst - ingen protest.";
+
         JsonFactory jFactory = new JsonFactory();
         StringWriter sw = new StringWriter();
         JsonGenerator jgen = jFactory.createGenerator(sw);
+
         jgen.writeStartObject();
         jgen.writeStringField("name", "Jens");
         jgen.writeNumberField("age", 13);
         jgen.writeStringField("gender", "hen");
         jgen.writeEndObject();
+
         jgen.close();
+
         return sw.toString();
     }
 
