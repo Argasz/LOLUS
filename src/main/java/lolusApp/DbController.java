@@ -33,14 +33,26 @@ public class DbController {
         return eventRepository.findAll();
     }
 
+    @CrossOrigin
     @GetMapping("/getEventsByLocation")
-    public @ResponseBody Iterable<Event> getEventsByLocation (@RequestParam String startLat, @RequestParam String endLat, @RequestParam String startLng, @RequestParam String endLng){
+    public @ResponseBody Iterable<Event> getEventsByLocation (@RequestParam String startLat, @RequestParam String endLat,
+                                                              @RequestParam String startLng, @RequestParam String endLng){
         return eventRepository.findAllByLatBetweenAndLngBetween(startLat,endLat,startLng,endLng);
     }
 
+    @CrossOrigin
     @GetMapping("/getEventsByTime")
     public @ResponseBody Iterable<Event> getEventsByTime (@RequestParam String startTime, @RequestParam String endTime){
         return eventRepository.findAllByTimeBetween(startTime, endTime);
     }
+
+    @CrossOrigin
+    @GetMapping("/getEventsByTimeAndLoc")
+    public @ResponseBody Iterable<Event> getEventsByTimeAndLoc (@RequestParam String startTime, @RequestParam String endTime,
+                                                                @RequestParam String startLat, @RequestParam String endLat,
+                                                                @RequestParam String startLng, @RequestParam String endLng){
+        return eventRepository.findAllByTimeBetweenAndLatBetweenAndLngBetween(startTime, endTime, startLat, endLat, startLng, endLng);
+    }
+
 
 }
