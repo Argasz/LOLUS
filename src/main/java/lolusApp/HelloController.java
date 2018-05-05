@@ -2,20 +2,24 @@ package lolusApp;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.io.StringWriter;
 
+
 @RestController
 public class HelloController {
 
+    @CrossOrigin
     @RequestMapping("/hello")
     String hello() {
         return "Hello";
     }
 
+    @CrossOrigin
     @RequestMapping("/jens")
     String jens() throws IOException {
         //return "Jens är bäst - ingen protest.";
@@ -31,6 +35,7 @@ public class HelloController {
         return sw.toString();
     }
 
+    @CrossOrigin
     @RequestMapping("/erik")
     String erik() {
         return "Erik är bättre";
