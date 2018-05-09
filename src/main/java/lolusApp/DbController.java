@@ -7,8 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-/*TODO: Datatyper, måste kunna söka efter intervall av tid/plats i databasen.
- *TODO:      Metoder för detta.*/
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 @Controller
 public class DbController {
@@ -16,13 +19,16 @@ public class DbController {
     @Autowired
     private EventRepository eventRepository;
 
+    private DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+
 
     @CrossOrigin
     @GetMapping("/addEvent")
-    public @ResponseBody String addEvent(@RequestParam String time, @RequestParam String lat, @RequestParam String lng){
-        Event e = new Event(lat, lng, time);
-        eventRepository.save(e);
+    public @ResponseBody String addEvent( @RequestParam String lat, @RequestParam String lng){
+        Date d = new Date();
 
+        Event e = new Event(lat, lng, new Date());
+        eventRepository.save(e);
 
         return "\nEvent added!";
     }
@@ -43,16 +49,34 @@ public class DbController {
     @CrossOrigin
     @GetMapping("/getEventsByTime")
     public @ResponseBody Iterable<Event> getEventsByTime (@RequestParam String startTime, @RequestParam String endTime){
-        return eventRepository.findAllByTimeBetween(startTime, endTime);
+        Date start, end;
+        start = formatDate(startTime);
+        end = formatDate(endTime);
+        System.out.println(start.toString());
+        System.out.println(end.toString());
+        return eventRepository.findAllByTimeBetween(start, end);
     }
-
     @CrossOrigin
     @GetMapping("/getEventsByTimeAndLoc")
     public @ResponseBody Iterable<Event> getEventsByTimeAndLoc (@RequestParam String startTime, @RequestParam String endTime,
                                                                 @RequestParam String startLat, @RequestParam String endLat,
                                                                 @RequestParam String startLng, @RequestParam String endLng){
-        return eventRepository.findAllByTimeBetweenAndLatBetweenAndLngBetween(startTime, endTime, startLat, endLat, startLng, endLng);
+        Date start, end;
+        start = formatDate(startTime);
+        end = formatDate(endTime);
+
+        return eventRepository.findAllByTimeBetweenAndLatBetweenAndLngBetween(start, end, startLat, endLat, startLng, endLng);
     }
 
+    private Date formatDate(String date){
+        try {
+            return df.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            Date rd = new Date();
+            rd.setTime(0);
+            return rd;
+        }
 
+    }
 }
