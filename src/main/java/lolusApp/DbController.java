@@ -1,11 +1,7 @@
 package lolusApp;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -13,7 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
-@Controller
+@RestController
 public class DbController {
 
     @Autowired
@@ -51,8 +47,6 @@ public class DbController {
         Date start, end;
         start = formatDate(startTime);
         end = formatDate(endTime);
-        System.out.println(start.toString());
-        System.out.println(end.toString());
         return eventRepository.findAllByTimeBetween(start, end);
     }
     @CrossOrigin
