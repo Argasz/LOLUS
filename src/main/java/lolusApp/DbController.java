@@ -25,7 +25,6 @@ public class DbController {
     @CrossOrigin
     @GetMapping("/addEvent")
     public @ResponseBody String addEvent( @RequestParam String lat, @RequestParam String lng){
-        Date d = new Date();
 
         Event e = new Event(lat, lng, new Date());
         eventRepository.save(e);
