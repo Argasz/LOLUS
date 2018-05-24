@@ -80,9 +80,9 @@ public class DbController {
 
     @CrossOrigin
     @GetMapping("/getPolice")
-    public @ResponseBody String getEventsByTimeAndLoc (@RequestParam String location) throws IOException {
+    public @ResponseBody String getEventsByTimeAndLoc (@RequestParam String locationName) throws IOException {
 
-        String urlToRead = "https://polisen.se/api/events?locationName=" + location;
+        String urlToRead = "https://polisen.se/api/events?locationName=" + locationName;
         StringBuilder result = new StringBuilder();
         URL url = new URL(urlToRead);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
