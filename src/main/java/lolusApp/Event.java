@@ -1,12 +1,6 @@
 package lolusApp;
 
-
-import javax.persistence.Temporal;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.TemporalType;
-import java.sql.Timestamp;
+import javax.persistence.*;
 import java.util.Date;
 
 
@@ -14,7 +8,7 @@ import java.util.Date;
 public class Event {
     @Id
     @GeneratedValue
-    private Long id;
+    private Long event_id;
 
     private String lat;
     private String lng;//Location of event/lamppost using Google Maps latitude/longitude notation
@@ -22,7 +16,6 @@ public class Event {
     @Temporal(TemporalType.TIMESTAMP) private Date time;   //Time of event
 
     private Event(){}
-    //TODO: Separera tid och datum
     public Event(String lat, String lng, Date time){
         this.lat = lat;
         this.lng = lng;
@@ -36,5 +29,7 @@ public class Event {
     public Date getTime() {
         return time;
     }
+    public Long getEvent_id() { return event_id; }
+
 
 }

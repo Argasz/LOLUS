@@ -14,13 +14,18 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
+
 @RestController
 public class DbController {
+    final String[] TYPES ={"Okänd","Pistolskott", "Rån", "Bilstöld", "Olycka", "Explosion", "Misshandel"};
 
     @Autowired
     private EventRepository eventRepository;
+    @Autowired
+    private VoteRepository voteRepository;
 
     private DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+
 
 
     @CrossOrigin
@@ -64,6 +69,55 @@ public class DbController {
         end = formatDate(endTime);
 
         return eventRepository.findAllByTimeBetweenAndLatBetweenAndLngBetween(start, end, startLat, endLat, startLng, endLng);
+    }
+    @CrossOrigin
+    @GetMapping("/addVote")
+    public @ResponseBody String addVote(@RequestParam String type, @RequestParam String userToken,
+                                        @RequestParam String eventTime, @RequestParam String eventLat,
+                                        @RequestParam String eventLng){
+        Date time;
+        time = formatDate(eventTime);
+        Event event;
+        event = eventRepository.findEventByTimeAndLatAndLng(time, eventLat, eventLng);
+        if(event == null){
+            return "No such event";
+        }
+        Vote v = new Vote(type,userToken,event);
+        voteRepository.save(v);
+        return "Vote saved";
+    }
+    @CrossOrigin
+    @GetMapping("/getAllVotes")
+    public @ResponseBody Iterable<Vote> getAllVotes(){
+        return voteRepository.findAll();
+    }
+    @CrossOrigin
+    @GetMapping("/getVotesByEvent")
+    public @ResponseBody Iterable<Vote> getVotesByEvent(@RequestParam String eventTime, @RequestParam String eventLat,
+                                                        @RequestParam String eventLng){
+        Event e = eventRepository.findEventByTimeAndLatAndLng(formatDate(eventTime), eventLat, eventLng);
+        if(e == null){
+            System.out.println("No such event");
+            return null;
+        }
+        return voteRepository.findAllByEvent(e);
+    }
+
+    @CrossOrigin
+    @GetMapping("/countVotes")
+    public @ResponseBody String getTypeByEvent(@RequestParam String eventTime, @RequestParam String eventLat,
+                                                                 @RequestParam String eventLng){
+        String type = "Okänd";
+        Event e = eventRepository.findEventByTimeAndLatAndLng(formatDate(eventTime),eventLat,eventLng);
+        Long count = 0L;
+        for(String s : TYPES){
+            Long evCount = voteRepository.countAllByTypeAndAndEvent(s,e);
+            if(evCount > count){
+                count = evCount;
+                type = s;
+            }
+        }
+        return type;
     }
 
     private Date formatDate(String date){
