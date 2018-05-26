@@ -82,6 +82,15 @@ public class DbController {
         if(event == null){
             return "No such event";
         }
+        boolean found = false;
+        for(String s : TYPES){
+            if(type == s){
+                found = true;
+            }
+        }
+        if(!found){
+            return "No such type.";
+        }
         Vote v = new Vote(type,userToken,event);
         voteRepository.save(v);
         return "Vote saved";
