@@ -77,12 +77,16 @@ public class DbController {
     public @ResponseBody String addVote(@RequestParam String type, @RequestParam String userToken,
                                         @RequestParam String eventTime, @RequestParam String eventLat,
                                         @RequestParam String eventLng){
+
         Date time;
         time = formatDate(eventTime);
         Event event;
         event = eventRepository.findEventByTimeAndLatAndLng(time, eventLat, eventLng);
         if(event == null){
             return "No such event";
+        }
+        if(voteRepository.findVoteByUserIdAndEvent(userToken,event) != null){
+            return "[{\"return\":\"User already voted on this event.\"}}";
         }
         boolean found = false;
         for(String s : TYPES){
@@ -91,11 +95,11 @@ public class DbController {
             }
         }
         if(!found){
-            return "No such type.";
+            return "[{\"return\":\"No such type.\"]";
         }
         Vote v = new Vote(type,userToken,event);
         voteRepository.save(v);
-        return "Vote saved";
+        return "[{\"return\":\"Vote saved\"]";
     }
 
     @CrossOrigin
