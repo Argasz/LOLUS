@@ -11,8 +11,9 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.Date;
-
+import java.util.Map;
 
 
 @RestController
@@ -73,20 +74,21 @@ public class DbController {
     }
 
     @CrossOrigin
-    @GetMapping("/addVote")
-    public @ResponseBody String addVote(@RequestParam String type, @RequestParam String userToken,
-                                        @RequestParam String eventTime, @RequestParam String eventLat,
-                                        @RequestParam String eventLng){
+    @GetMapping(value = "/addVote")
+    public @ResponseBody
+    Map<String, String> addVote(@RequestParam String type, @RequestParam String userToken,
+                                @RequestParam String eventTime, @RequestParam String eventLat,
+                                @RequestParam String eventLng){
 
         Date time;
         time = formatDate(eventTime);
         Event event;
         event = eventRepository.findEventByTimeAndLatAndLng(time, eventLat, eventLng);
         if(event == null){
-            return "No such event";
+            return Collections.singletonMap("return","No such event");
         }
         if(voteRepository.findVoteByUserIdAndEvent(userToken,event) != null){
-            return "[{\"return\":\"User already voted on this event.\"}}";
+            return Collections.singletonMap("return","User already voted on this event");
         }
         boolean found = false;
         for(String s : TYPES){
@@ -95,11 +97,11 @@ public class DbController {
             }
         }
         if(!found){
-            return "[{\"return\":\"No such type.\"]";
+            return Collections.singletonMap("return","No such type");
         }
         Vote v = new Vote(type,userToken,event);
         voteRepository.save(v);
-        return "[{\"return\":\"Vote saved\"]";
+        return Collections.singletonMap("return","Vote saved");
     }
 
     @CrossOrigin
@@ -122,10 +124,13 @@ public class DbController {
 
     @CrossOrigin
     @GetMapping("/countVotes")
-    public @ResponseBody String getTypeByEvent(@RequestParam String eventTime, @RequestParam String eventLat,
+    public @ResponseBody Map<String, String> getTypeByEvent(@RequestParam String eventTime, @RequestParam String eventLat,
                                                                  @RequestParam String eventLng){
         String type = "Okänd";
         Event e = eventRepository.findEventByTimeAndLatAndLng(formatDate(eventTime),eventLat,eventLng);
+        if(e == null){
+            return Collections.singletonMap("type","error");
+        }
         Long count = 0L;
         for(String s : TYPES){
             Long evCount = voteRepository.countAllByTypeAndEvent(s,e);
@@ -134,7 +139,7 @@ public class DbController {
                 type = s;
             }
         }
-        return type;
+        return Collections.singletonMap("type", type);
     }
 
     private Date formatDate(String date){
