@@ -72,7 +72,7 @@ public class DbController {
     }
 
     @CrossOrigin
-    @GetMapping("/addVote")
+    @RequestMapping("/addVote")
     public @ResponseBody String addVote(@RequestParam String type, @RequestParam String userToken,
                                         @RequestParam String eventTime, @RequestParam String eventLat,
                                         @RequestParam String eventLng){
