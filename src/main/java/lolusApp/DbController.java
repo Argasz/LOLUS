@@ -59,6 +59,7 @@ public class DbController {
         end = formatDate(endTime);
         return eventRepository.findAllByTimeBetween(start, end);
     }
+
     @CrossOrigin
     @GetMapping("/getEventsByTimeAndLoc")
     public @ResponseBody Iterable<Event> getEventsByTimeAndLoc (@RequestParam String startTime, @RequestParam String endTime,
@@ -123,7 +124,7 @@ public class DbController {
         Event e = eventRepository.findEventByTimeAndLatAndLng(formatDate(eventTime),eventLat,eventLng);
         Long count = 0L;
         for(String s : TYPES){
-            Long evCount = voteRepository.countAllByTypeAndAndEvent(s,e);
+            Long evCount = voteRepository.countAllByTypeAndEvent(s,e);
             if(evCount > count){
                 count = evCount;
                 type = s;
