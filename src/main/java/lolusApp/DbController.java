@@ -70,6 +70,7 @@ public class DbController {
 
         return eventRepository.findAllByTimeBetweenAndLatBetweenAndLngBetween(start, end, startLat, endLat, startLng, endLng);
     }
+
     @CrossOrigin
     @GetMapping("/addVote")
     public @ResponseBody String addVote(@RequestParam String type, @RequestParam String userToken,
@@ -84,7 +85,7 @@ public class DbController {
         }
         boolean found = false;
         for(String s : TYPES){
-            if(type == s){
+            if(type.equals(s)){
                 found = true;
             }
         }
@@ -95,11 +96,13 @@ public class DbController {
         voteRepository.save(v);
         return "Vote saved";
     }
+
     @CrossOrigin
     @GetMapping("/getAllVotes")
     public @ResponseBody Iterable<Vote> getAllVotes(){
         return voteRepository.findAll();
     }
+
     @CrossOrigin
     @GetMapping("/getVotesByEvent")
     public @ResponseBody Iterable<Vote> getVotesByEvent(@RequestParam String eventTime, @RequestParam String eventLat,
